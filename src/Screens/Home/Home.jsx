@@ -39,9 +39,9 @@ function Home() {
   }
 
   return (
-    <div className="flex items-center p-4 justify-center h-screen">
+    <div className="flex items-center w-screen sm:w-full p-4 justify-center h-screen">
       <div className="flex items-center p-4 justify-center">
-        <img src={Img} alt="HomePageImage" className="h-1/4" />
+        <img src={Img} alt="HomePageImage"/>
       </div>
       <div className="absolute inset-0 flex flex-col justify-center items-center z-10">
         <form onSubmit={onSubmit}>

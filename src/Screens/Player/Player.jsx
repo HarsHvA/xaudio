@@ -6,7 +6,7 @@ function Player() {
   let location = useLocation();
   const audioUrl = location.state;
   return (
-    <div className="">
+    <div>
       <Waveform url={audioUrl} />
     </div>
   );
