@@ -22,19 +22,9 @@ function Home() {
       (snapshot) => {
         const progress =
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        setProgress("Upload is " + progress + "% done");
+        setProgress("Upload is " + Math.round(progress) + "% done");
         if (progress === 100) {
           setProgress("Loading audio player...");
-        }
-        switch (snapshot.state) {
-          case "paused":
-            console.log("Upload is paused");
-            break;
-          case "running":
-            console.log("Upload is running");
-            break;
-          default:
-            break;
         }
       },
       (error) => {
@@ -42,7 +32,6 @@ function Home() {
       },
       () => {
         storage.getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          console.log("File available at", downloadURL);
           navigate("/audioplayer", { state: downloadURL });
         });
       }
